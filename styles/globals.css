@@ -1,16 +1,781 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+::-webkit-scrollbar {
+    display: none;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.body {
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
 }
 
-* {
-  box-sizing: border-box;
+.home-page,
+.about-page,
+.resume-page,
+.work-page,
+.contact-page {
+    scroll-snap-align: start;
+    transition: all 500ms linear;
+}
+
+/* =============================
+hof nav head style 
+============================= */
+.hof-nav-links {
+    height: 10%;
+}
+
+/* .nav-links a{
+    color: rgba(16, 16, 16, 0.25);
+}
+.nav-active a{
+    
+} */
+/* =============================
+hof nav dots style 
+============================= */
+.navigation-dots {
+    z-index: 999;
+}
+
+.nav-dots-links,
+.nav-dots-active {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: rgba(54, 98, 229, 0.2);
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+
+}
+
+.nav-dots-links .nav-dots-active a {
+    opacity: 0;
+}
+
+.nav-dots h1 {
+    opacity: 0;
+}
+
+.nav-dots a {
+    opacity: 0;
+}
+
+:hover.nav-dots h1 {
+    opacity: 1;
+    color: rgba(16, 16, 16, 0.75);
+}
+
+.nav-dots-active {
+    background-color: rgba(54, 98, 229, 0.9);
+}
+
+/* =============================
+hof nav bottom style 
+============================= */
+.hof-nav-social {
+    height: 10%;
+}
+
+/* =============================
+hero text style 
+============================= */
+
+.head-text {
+    background-color: #0C5E50;
+    border-radius: 20px 25px 0px;
+}
+
+.head-name h2 span {
+    color: #0077B6;
+}
+
+/* =============================
+hero images style 
+============================= */
+.hero-img-back {
+    bottom: -15%;
+}
+
+.hero-image-box {
+    width: auto;
+
+}
+
+.main-circle {
+    top: 20%;
+    z-index: -1;
+    border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+    width: 45vh;
+    height: 45vh;
+    box-shadow: 5px 5px 6px rgba(28, 28, 28, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    animation: heroImgAnim 5s 2.5s infinite linear;
+}
+
+@keyframes heroImgAnim {
+    0% {
+        border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+    }
+
+    25% {
+        border-radius: 30% 78% 39% 61% / 64% 56% 44% 36%;
+    }
+
+    50% {
+        border-radius: 30% 78% 39% 61% / 40% 40% 60% 60%;
+    }
+
+    75% {
+        border-radius: 61% 39% 64% 36% / 40% 37% 63% 60%;
+    }
+
+    100% {
+        border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+    }
+}
+
+
+.img-react,
+.img-javas,
+.img-next,
+.img-figma {
+    box-shadow: 5px 5px 6px rgba(28, 28, 28, 0.25), inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+}
+
+.img-react {
+    bottom: 20%;
+    left: -10%;
+    width: 5rem;
+    height: 5rem;
+}
+
+.img-next {
+    width: 3rem;
+    height: 3rem;
+    bottom: 75%;
+    left: 0;
+}
+
+.img-javas {
+    width: 7rem;
+    height: 7rem;
+    bottom: 20%;
+    right: -10%;
+}
+
+.img-figma {
+    width: 4rem;
+    height: 4rem;
+    bottom: 75%;
+    right: 0%;
+}
+
+
+/* =============================
+about us skill images style 
+============================= */
+.skill-img-box {
+    background: rgba(151, 209, 244, 0.2);
+    box-shadow: 4px 4px 4px #0C3E5E;
+}
+
+
+
+
+
+/* =============================
+resume section style 
+============================= */
+
+.resume-experiance-part {
+    background: #F1f1f1;
+    box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+}
+
+.resume-experiance-title {
+    height: 20%;
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
+}
+
+.resume-experiance-detail {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.resume-experiance-company {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+}
+
+.resume-experiance-img {
+    background: #dcdbe6;
+    box-shadow: 0px 4px 10px #333;
+}
+
+.resume-experiance-head-title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.resume-experiance-head-title h2,
+h3,
+h4 {
+    font-family: 'Libre Baskerville';
+    font-weight: 400;
+    /* color: #333 !important; */
+}
+
+
+
+
+.resume-experiance-btn button {
+    color: #F1f1f1;
+    background: #41176B;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(4px);
+    border-radius: 20px 10px;
+    border: none;
+}
+
+
+
+.skill-section-outer {
+    background: #f1f1f1;
+    box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15),
+        -6px -6px 10px -1px rgba(255, 255, 255, 0.7);
+}
+
+.skill-section-inner {
+    background: #f1f1f1;
+    box-shadow: inset 4px 4px 6px -1px rgba(0, 0, 0, 0.2),
+        inset -4px -4px 6px -1px rgba(255, 255, 255, 0.7),
+        -0.5px -0.5px 0px rgba(255, 255, 255, 1),
+        0.5px 0.5px 0px rgba(0, 0, 0, 0.15),
+        0px 12px 10px -10px rgba(0, 0, 0, 0.05);
+}
+
+
+
+/* =============================
+Work  style UI
+============================= */
+
+
+
+.work-section-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.work-text-title {
+    margin-block-start: 1rem !important;
+    margin-block-end: 1rem !important;
+}
+
+.work-project-box {
+    /* width: 80%;
+    height: 70%; */
+}
+
+.work-project-section {
+    width: 100%;
+    height: 80%;
+    background-color: #f1f1f1;
+    box-shadow: 1px 1px 0px #999,
+        2px 2px 0px #999,
+        3px 3px 0px #999,
+        4px 4px 0px #999,
+        5px 5px 0px #999;
+    border-radius: 30px 10px 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.work-project-bottom {
+    height: 25%;
+    width: 100%;
+    background: #4D4975;
+    border-radius: 0px 0px 25px 15px;
+    display: grid;
+    grid-template-columns: 1.5fr 0.5fr 0.5fr 1.5fr;
+    place-items: center;
+}
+
+/* =======================================
+project box section style 
+======================================= */
+.work-project-name,
+.work-idea-name h3 h4 {
+    color: #f1f1f1;
+}
+
+.work-full-project-btn button {
+    background: linear-gradient(90deg, #E9DEF8 -12%, rgba(190, 196, 251, 0.77) 123%);
+    outline: none;
+    border: none;
+    border-radius: 20px 10px;
+    transition: all 0.5s linear;
+}
+
+:hover.work-full-project-btn button {
+    box-shadow: 1px 1px 0px #999,
+        2px 2px 0px #999,
+        3px 3px 0px #999,
+        4px 4px 0px #999;
+    backdrop-filter: blur(4px);
+}
+
+/* =======================================
+job section style 
+======================================= */
+
+.work-job-section {
+    background: #ECECEC;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    display: grid;
+    place-items: center;
+}
+
+.work-job-inner {
+    width: 95%;
+    height: 80%;
+    background: #ECECEC;
+    box-shadow: inset 2px 0px 4px rgba(0, 0, 0, 0.25),
+        inset 2px 2px 4px rgba(0, 0, 0, 0.25),
+        inset -2px 0px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.work-job-box h2 {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    color: rgba(51, 51, 51, 0.75);
+}
+
+.work-project-main {
+    width: 100%;
+    height: 75%;
+    overflow: hidden;
+
+}
+
+.project-main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #999;
+    border-radius: 30px 10px 0px 0px;
+    overflow: hidden;
+    opacity: 1;
+    transition: opacity 2s linear;
+}
+.work-image-box{
+    
+}
+.project-main-hide {
+    opacity: 0;
+    width: 0%;
+    height: 0%;
+}
+
+/* .arrow-button{
+    cursor: pointer;
+    width: 5rem;
+} */
+
+/* =============================
+Contact us form style 
+============================= */
+
+/* =============================
+contact detail section style 
+============================= */
+.contact-detail-box {
+    gap: 10%;
+}
+
+.contact-detail {
+    width: 45%;
+    background-color: #FEF4F5;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+.contact-detail-email {
+    background: #F2F7FB;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+.contact-detail h3 {
+    font-family: 'Recursive';
+}
+
+.contact-icon {
+    color: black !important;
+}
+
+/* =============================
+contact form section style 
+============================= */
+.contact-form-section {
+    background: #F4F4F4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.form-box-one {
+    gap: 10%;
+
+}
+
+.form-box-two {
+    gap: 10%;
+}
+
+.form-name,
+.form-email {
+    width: 40%;
+    position: relative;
+}
+
+.form-subject,
+.form-massage {
+    width: 90%;
+    position: relative;
+}
+
+.form-input {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    outline: none;
+    border: none;
+    fill: none;
+    background: transparent;
+    border-bottom: 3px solid rgba(51, 51, 51, 0.75);
+
+}
+
+.form-textarea {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    outline: none;
+    border: none;
+    fill: none;
+    background: transparent;
+    border-bottom: 3px solid rgba(51, 51, 51, 0.75);
+    resize: none;
+}
+
+.form-label {
+    position: absolute;
+    left: 0;
+    font-family: 'Ruda';
+    font-style: normal;
+    font-weight: 500;
+    text-transform: capitalize;
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.form-label span {
+    color: red;
+}
+
+/* =================================
+for mobile device style  
+================================= */
+
+@media screen and (max-width:768px) {
+
+    /* =======================================
+Menu- humburger style 🍔
+======================================= */
+.mobile-humbager{
+    display: flex;
+}
+    .mobile-menu {
+        width: 5rem;
+        height: 5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .mobile-menu-box {
+        z-index: 999;
+        width:3rem;
+        height:3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .mobile-menu-line {
+
+        width: 3rem;
+        height: 0.3rem;
+        border-radius: 0.5rem;
+        background-color: rgb(184, 79, 79);
+        transition: all 0.5s ease-in-out;
+    }
+
+    .mobile-menu-line::after {
+        content: "";
+        position: absolute;
+        top: 0%;
+        width: 2rem;
+        height: 0.3rem;
+        border-radius: 0.5rem;
+        background-color: rgb(184, 79, 79);
+        transition: width 0.2s ease-in-out;
+    }
+
+    .mobile-menu-line::before {
+        content: "";
+        position: absolute;
+        bottom: 0%;
+        right: 0%;
+        width: 2rem;
+        height: 0.3rem;
+        border-radius: 0.5rem;
+        background-color: rgb(184, 79, 79);
+        transition: width 0.2s ease-in-out;
+    }
+
+    .mobile-menu-line-open {
+        width: 0rem;
+        transition: all 0.1s ease-in-out;
+    }
+
+    .mobile-menu-line-open::after {
+        content: "";
+        position: absolute;
+        top:45%;
+        left: 0;
+        width: 3rem;
+        height: 0.3rem;
+        border-radius: 0.2rem;
+        background-color: rgb(184, 79, 79);
+        transform: rotate(45deg);
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .mobile-menu-line-open::before {
+        content: "";
+        position: absolute;
+        top:45%;
+        width: 3rem;
+        height: 0.3rem;
+        border-radius: 0.5rem;
+        background-color: rgb(184, 79, 79);
+        transform: rotate(-45deg);
+        transition: transform 0.5s ease-in-out;
+    }
+
+    /* 
+=======================================
+menu item style 
+======================================= */
+    .main-header-nav {
+        position: relative;
+    }
+
+    .menu-item-open {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: flex-end;
+        background: rgba(20, 20, 20, 0.75);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(0.5px);
+        -webkit-backdrop-filter: blur(1px);
+        transition: all 0.1s linear;
+        z-index: 999;
+    }
+
+    .menu-item-open ul {
+        background: rgba(0, 0, 0, 0.25);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        border-radius: 10px 0px 0px 10px;
+        display: grid;
+        justify-content: center;
+        height: 100vh;
+        width: 50vw;
+        align-content: space-evenly;
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+        transform: translateX(0%);
+        transition: transform 0.5s linear;
+    }
+
+    .main-nav-links {
+        text-decoration: none;
+        font-size: 1rem;
+    }
+
+
+
+    .menu-item {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        display: flex;
+        justify-content: flex-end;
+        transition: all 0.5s linear;
+    }
+
+    .menu-item ul {
+        background: rgba(0, 0, 0, 0.25);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        border-radius: 10px;
+        display: grid;
+        justify-content: center;
+        height: 100vh;
+        width: 50vw;
+        align-content: space-evenly;
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+        transform: translateX(100%);
+        transition: all 0.5s linear;
+    }
+   
+    .main-nav-links a {
+        text-decoration: none;
+        font-size: 1.5rem;
+    }
+
+    /* =============================
+hero images style 
+============================= */
+    .hero-img {
+        justify-content: end;
+    }
+    .hero-img-back{
+        width: 85%;
+    }
+    .img-react {
+        width: 4rem;
+        height: 4rem;
+        bottom: 20%;
+        left: 0%;
+    }
+
+    .img-next {
+        width: 2rem;
+        height: 2rem;
+        bottom: 75%;
+        left: 10%;
+    }
+
+    .img-javas {
+        width: 5rem;
+        height: 5rem;
+        bottom: 20%;
+        right: 0%;
+    }
+
+    .img-figma {
+        width: 3rem;
+        height: 3rem;
+        bottom: 75%;
+        right: 10%;
+    }
+
+    .hero-img-back {
+        bottom: -27%;
+    }
+
+    /* =============================
+hof nav bottom style 
+============================= */
+    .hof-nav-social {
+        position: absolute;
+        bottom: 10rem;
+        left: 1rem;
+        gap: 5px;
+    }
+
+/* =============================
+resume style 
+============================= */
+.resume-section{
+    height: 85%;
+}
+.skill-section-box{
+    width: 90%;
+}
+/* =============================
+resume skill circle style 
+============================= */
+.skill-section-outer {
+    width: 5rem;
+    height: 5rem;
+}
+
+.skill-section-inner {
+    width: 4rem;
+    height: 4rem;
+}
+/* =============================
+work project count style 
+============================= */
+.work-job-inner {
+    gap: 10px;
+}
+.work-job-box h2{
+    font-size: 0.8rem;
+}
+/* =============================
+contact detail style 
+============================= */
+.contact-section{
+    height: 90%;
+}
+.contact-detail {
+    width: 83.33%;
+}
+.form-label{
+    font-size: 0.8rem;
+}
+
 }
